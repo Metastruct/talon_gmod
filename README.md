@@ -2,6 +2,9 @@
 
 Work in Progress voice control for Garry's Mod. Does not modify Garry's Mod so it should also be VAC safe!
 
+**Warning:** If you already use talon voice this may conflict with repositories like [knausj_talon](https://github.com/knausj85/knausj_talon/)!
+
+
 ### For Users: How to install
 
  1. Install [Talon Voice](https://talonvoice.com/)
@@ -28,9 +31,9 @@ Work in Progress voice control for Garry's Mod. Does not modify Garry's Mod so i
  8. Make sure `garrysmod/cfg/talon.cfg` exists. Begin using voice commands! See examples below.
 
 ### Troubleshooting
-  - View logs: ![image](https://user-images.githubusercontent.com/207340/156885913-a3783c2f-8085-4a5d-91b2-729ab851bf67.png)
-
-
+  View logs for errors 
+  
+  ![image](https://user-images.githubusercontent.com/207340/156885913-a3783c2f-8085-4a5d-91b2-729ab851bf67.png)
 
 ### For servers / singleplayer / listen server users
 
