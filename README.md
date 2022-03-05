@@ -63,7 +63,7 @@ Please clone [the repo](https://github.com/Metastruct/talon_gmod.git) to your se
  
 **Sandbox:** (gmod_sandbox.talon)
 
- - spawn crate | spawn tree | spawn oil drump
+ - spawn crate | spawn tree | spawn oil drum
  - spawn vehicle jeep
  - spawn weapon crowbar
  - **sandbox** undo | sandbox revert
@@ -95,5 +95,5 @@ Please clone [the repo](https://github.com/Metastruct/talon_gmod.git) to your se
  - Print ingame what was printed on screen
 
 ### Credits
- - [ValveCMD](github.com/python1320/valvecmd)
+ - [ValveCMD](https://github.com/python1320/valvecmd)
  - https://github.com/knausj85/knausj_talon/ for numbers.py et al.
