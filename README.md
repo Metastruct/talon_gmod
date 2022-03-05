@@ -27,6 +27,10 @@ Work in Progress voice control for Garry's Mod. Does not modify Garry's Mod so i
  7. Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for command support. (TODO/Optional). For now see [below](#for-servers--singleplayer--listen-server-users).
  8. Make sure `garrysmod/cfg/talon.cfg` exists. Begin using voice commands! See examples below.
 
+### Troubleshooting
+  - View logs: ![image](https://user-images.githubusercontent.com/207340/156885913-a3783c2f-8085-4a5d-91b2-729ab851bf67.png)
+
+
 
 ### For servers / singleplayer / listen server users
 
