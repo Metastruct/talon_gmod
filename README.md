@@ -30,7 +30,7 @@ Although talonvoice supports Mac and Linux, **talon_gmod does not yet support th
      If talon is running it will autoreload and install dependencies.
      
  6. Restart talon voice. It should automatically find GMod. (possibly optional).
- 7. Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for command support. (TODO/Optional). For now see [below](#for-servers--singleplayer--listen-server-users).
+ 7. Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for improved command support. (TODO/Optional). For now see [below](#for-servers--singleplayer--listen-server-users).
  8. Make sure `garrysmod/cfg/talon.cfg` exists. This is used by ingame lua code to see if you have talon. The file can be empty.
  9. Begin using voice commands! See examples below. For example, say `toggle flashlight`
 
