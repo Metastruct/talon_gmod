@@ -5,7 +5,7 @@ Work in Progress voice control for Garry's Mod. Does not modify Garry's Mod so i
 ### For Users: How to install
 
  1. Install [Talon Voice](https://talonvoice.com/)
- 2. Install voice recognition:
+ 2. Install voice recognition: (Gen2 seems to work for foreign accents. Conformer is more recent and should be more accurate.)
  
       ![image](https://user-images.githubusercontent.com/207340/156883300-794009b3-5a72-46dc-a4bc-720188f3cc9c.png)
       
