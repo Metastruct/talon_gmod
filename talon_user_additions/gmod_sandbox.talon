@@ -2,15 +2,16 @@ tag: user.sandbox
 -
 
 
-^sandbox cleanup everything$: user.gmod_runcmd("gmod_cleanup")
-^sandbox cleanup$: user.gmod_runcmd("talon_failed")
-^sandbox revert$: user.gmod_runcmd("gmod_undo")
+^sand box clean up everything$: user.gmod_runcmd("gmod_cleanup")
+^sand box clean up confirm$: user.gmod_runcmd("gmod_cleanup")
+^sand box clean up$: user.gmod_runcmd("talon_failed")
+^sand box revert$: user.gmod_runcmd("gmod_undo")
 ^revert spawn$: user.gmod_runcmd("gmod_undo")
-^sandbox undo$: user.gmod_runcmd("gmod_undo")
-^sandbox undo two$:
+^sand box undo$: user.gmod_runcmd("gmod_undo")
+^sand box undo two$:
     user.gmod_runcmd("gmod_undo")
     user.gmod_runcmd("gmod_undo")
-^sandbox undo three$:
+^sand box undo three$:
     user.gmod_runcmd("gmod_undo")
     user.gmod_runcmd("gmod_undo")
     user.gmod_runcmd("gmod_undo")
@@ -21,7 +22,7 @@ tag: user.sandbox
 ^drop weapon$:
     user.gmod_runcmd("drop")
 
-^sandbox weapon cleanup$: user.gmod_runcmd("talon_failed")
+^sand box weapon cleanup$: user.gmod_runcmd("talon_failed")
 ^(give|create) weapon {user.sandbox_weapon}$: 
     user.gmod_runcmd("gm_giveswep "+user.sandbox_weapon)
 ^spawn weapon {user.sandbox_weapon}$: 

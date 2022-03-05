@@ -10,6 +10,7 @@ toggle flashlight: user.gmod_runcmd("impulse 100")
 toggle noclip: user.gmod_runcmd("noclip")
 
 flashlight: user.gmod_runcmd("impulse 100")
+flash light: user.gmod_runcmd("impulse 100")
 
 ^computer terminate user$: user.gmod_runcmd("kill")
 ^operator terminate user$: user.gmod_runcmd("kill")

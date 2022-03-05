@@ -8,7 +8,6 @@ from . import gmodutils # TODO: This will NOT autoreload!!
 from .gmodutils import sandbox  # TODO: Same!!!!!
 
 
-toggled=False
 mod = Module()
 
 apps = mod.apps
@@ -98,27 +97,30 @@ if settings_path:
 	fs.watch(settings_path, update_settings)
 
 # ===== players.json (TODO: json) ======
-players_file = gmodutils.GetTalonDataFolder() / 'players.json'
-if players_file.exists():
-	players_file=str(players_file)
-	mod.list("teleportnames", desc="list of teleport names and entity ids")
+datafolder = gmodutils.GetTalonDataFolder()
+if datafolder:
+	players_file = datafolder / 'players.json'
+	if players_file.exists():
+		players_file=str(players_file)
+		mod.list("teleportnames", desc="list of teleport names and entity ids")
 
-	def update_teleport_list(name, flags):
-		if name != players_file:
-			return
+		def update_teleport_list(name, flags):
+			if name != players_file:
+				return
 
-		t = {}
-		with open(players_file, "r") as f:
-			for line in f:
-				data = line.rstrip().split(" ",1)
-				if len(data)>0:
-					t[data[1]]=data[0]
-					#print(data[1])
-		ctx.lists["user.teleportnames"]=t
+			t = {}
+			with open(players_file, "r") as f:
+				for line in f:
+					data = line.rstrip().split(" ",1)
+					if len(data)>0:
+						t[data[1]]=data[0]
+						#print(data[1])
+			ctx.lists["user.teleportnames"]=t
 
-	update_teleport_list(players_file, None)
-	fs.watch(players_file, update_teleport_list)
+		update_teleport_list(players_file, None)
+		fs.watch(players_file, update_teleport_list)
 
 
 sandbox.init()
 gmodutils.getCreateTalonCfg()
+gmodutils.RunConsoleCommand("_talon_initializer")

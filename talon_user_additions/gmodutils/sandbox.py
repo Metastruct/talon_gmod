@@ -37,11 +37,11 @@ arcticvr_usptactical,vr pistol"""
 weapons=genMapping(weapons_raw)
 
 props=genMapping("""models/props_junk/wood_crate001a.mdl,crate
-models/props_c17/oildrum001.mdl,oildrum
-models/props_c17/oildrum001_explosive.mdl,explosive oildrum
-models/props_c17/furnitureStove001a.mdl,stove
-models/props_interiors/pot02a.mdl,pot
-models/props_interiors/pot01a.mdl,kettle
+models/props_c17/oildrum001.mdl,oildrum,oil drum,oil barrel
+models/props_c17/oildrum001_explosive.mdl,explosive oildrum,explosive oil drum,explosive oil barrel
+models/props_c17/furnitureStove001a.mdl,stove,a stove
+models/props_interiors/pot02a.mdl,pot,a pot
+models/props_interiors/pot01a.mdl,kettle,a kettle
 models/props_junk/PopCan01a.mdl,pop can,soda can
 models/props_interiors/Radiator01a.mdl,radiator
 models/props_junk/TrafficCone001a.mdl,traffic cone,cone

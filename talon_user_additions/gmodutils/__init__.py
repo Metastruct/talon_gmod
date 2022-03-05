@@ -12,6 +12,7 @@ try:
 	import vdf
 except ImportError:
 	pipInstall("vdf")
+import vdf
 
 
 import os,json
@@ -132,10 +133,14 @@ def RunConsoleCommand(c: str):
 	CREATE_NO_WINDOW = 0x08000000
 	DETACHED_PROCESS = 0x00000008
 	subprocess.call([getValveCMD(), c],creationflags=DETACHED_PROCESS)#,startupinfo=si)
-	
+
+def PrintMessageIngame(msg):
+	RunConsoleCommand("_talon_message "+msg)
+
 
 if __name__ == "__main__":
 	import pprint
-	pprint.pprint(GetGModPath())
 	pprint.pprint(readTalonAutogenSettings())
+	pprint.pprint("gmod=",GetGModPath())
+	RunConsoleCommand("say Testing test test!")
 	
