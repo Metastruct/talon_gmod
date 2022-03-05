@@ -8,6 +8,10 @@ Work in Progress voice control for Garry's Mod. Does not modify Garry's Mod so i
  2. Install voice recognition:
  
       ![image](https://user-images.githubusercontent.com/207340/156883300-794009b3-5a72-46dc-a4bc-720188f3cc9c.png)
+      
+      **NOTE:** You may need to wait for talon to initialize for over a minute before the button appears.
+      You can also try restarting talon once and waiting for a minute. You can also continue to next step in the meanwhile.
+      
  3. Open the talon folder from tray
   
      ![image](https://user-images.githubusercontent.com/207340/156883338-8097ddf1-31c1-4cec-9a4c-cb62f7359ae1.png)
