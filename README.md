@@ -16,16 +16,22 @@ Work in Progress voice control for Garry's Mod. Does not modify Garry's Mod so i
  5. Extract `talon_user_additions`from the downloaded `talon_gmod` zip file such that the folder structure looks like this (important!): 
      
      ![image](https://user-images.githubusercontent.com/207340/156883351-13e8b385-7e78-448f-b5f0-ee0e6aa3fac0.png)
+     
      If talon is running it will autoreload and install dependencies.
      
  6. Restart talon voice. It should automatically find GMod. (possibly optional)
- 7. Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for command support. (TODO/Optional)
+ 7. Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for command support. (TODO/Optional). For now see [below](#for-servers--singleplayer--listen-server-users).
  8. Make sure `garrysmod/cfg/talon.cfg` exists. Begin using voice commands! See examples below.
 
 
 ### For servers / singleplayer / listen server users
 
-The addon requires clientside/serverside Lua files for better commands support! 
+The addon requires clientside/serverside Lua files for better commands support!
+
+Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for improved command support.
+
+**Alternatively**
+
 Please clone [the repo](https://github.com/Metastruct/talon_gmod.git) to your server's addons folder. You can also [download it](https://github.com/Metastruct/talon_gmod/archive/refs/heads/dev.zip).
 
 ### Voice commands
