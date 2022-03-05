@@ -97,7 +97,6 @@ if settings_path:
 	update_settings(settings_path, None)
 	fs.watch(settings_path, update_settings)
 
-
 # ===== players.json (TODO: json) ======
 players_file = gmodutils.GetTalonDataFolder() / 'players.json'
 if players_file.exists():

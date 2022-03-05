@@ -6,6 +6,11 @@ app: gmod
 ^computer current time please$: user.gmod_timefi()
 
 
+toggle flashlight: user.gmod_runcmd("impulse 100")
+toggle noclip: user.gmod_runcmd("noclip")
+
+flashlight: user.gmod_runcmd("impulse 100")
+
 ^computer terminate user$: user.gmod_runcmd("kill")
 ^operator terminate user$: user.gmod_runcmd("kill")
 ^i cant take this anymore$: user.gmod_runcmd("tail_failed")
@@ -30,3 +35,5 @@ app: gmod
 ^enable microphone$: user.gmod_runcmd("+voicerecord")
 ^enable micro phone$: user.gmod_runcmd("+voicerecord")
 ^disable microphone$: user.gmod_runcmd("-voicerecord")
+
+^exit vr mod confirm$: user.gmod_runcmd("vrmod_exit")
