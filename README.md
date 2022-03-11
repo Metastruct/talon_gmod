@@ -1,11 +1,14 @@
 ## Voice Control Garry's Mod ingame (Mostly for VR). 
 
-Work in Progress voice control for Garry's Mod. Does not modify Garry's Mod so it should also be VAC safe!
+Work in Progress voice control for Garry's Mod. 
+
+Does not modify Garry's Mod so it should also be VAC safe! **(WINDOWS ONLY)**
 
 **Warning:** If you already use talon voice this may conflict with repositories like [knausj_talon](https://github.com/knausj85/knausj_talon/)!
 
+Although talonvoice supports Mac and Linux, **talon_gmod does not yet support them, only Windows (due to valvecmd.exe)!**
 
-### For Users: How to install
+### For Users: How to install (server hosters look [below](#for-servers--singleplayer--listen-server-users))
 
  1. Install [Talon Voice](https://talonvoice.com/)
  2. Install voice recognition: (Gen2 seems to work for foreign accents. Conformer is more recent and should be more accurate.)
@@ -13,27 +16,33 @@ Work in Progress voice control for Garry's Mod. Does not modify Garry's Mod so i
       ![image](https://user-images.githubusercontent.com/207340/156883300-794009b3-5a72-46dc-a4bc-720188f3cc9c.png)
       
       **NOTE:** You may need to wait for talon to initialize for over a minute before the button appears.
-      You can also try restarting talon once and waiting for a minute. You can also continue to next step in the meanwhile.
+      You can also try restarting talon once and waiting for a minute. You can also continue to next step in the meanwhile. Please write in issues what worked.
       
- 3. Open the talon folder from tray
+ 3. Open the talon configuration folder from tray
   
      ![image](https://user-images.githubusercontent.com/207340/156883338-8097ddf1-31c1-4cec-9a4c-cb62f7359ae1.png)
  
- 4. Download [talon_gmod](https://github.com/Metastruct/talon_gmod/archive/refs/heads/dev.zip)
+ 4. Download [talon_gmod](https://github.com/Metastruct/talon_gmod/archive/refs/heads/dev.zip) zip
  5. Extract `talon_user_additions`from the downloaded `talon_gmod` zip file such that the folder structure looks like this (important!): 
      
      ![image](https://user-images.githubusercontent.com/207340/156883351-13e8b385-7e78-448f-b5f0-ee0e6aa3fac0.png)
      
      If talon is running it will autoreload and install dependencies.
      
- 6. Restart talon voice. It should automatically find GMod. (possibly optional)
- 7. Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for command support. (TODO/Optional). For now see [below](#for-servers--singleplayer--listen-server-users).
- 8. Make sure `garrysmod/cfg/talon.cfg` exists. Begin using voice commands! See examples below.
+ 6. Restart talon voice. It should automatically find GMod. (possibly optional).
+ 7. Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for improved command support. (TODO/Optional). For now see [below](#for-servers--singleplayer--listen-server-users).
+ 8. Make sure `garrysmod/cfg/talon.cfg` exists. This is used by ingame lua code to see if you have talon. The file can be empty.
+ 9. Begin using voice commands! See examples below. For example, say `toggle flashlight`
 
 ### Troubleshooting
-  View logs for errors 
+  View logs for any errors:
   
   ![image](https://user-images.githubusercontent.com/207340/156885913-a3783c2f-8085-4a5d-91b2-729ab851bf67.png)
+
+  It might help restarting talon once more.
+  
+Check from [issues](https://github.com/Metastruct/talon_gmod/issues?q=is%3Aissue) for any solutions if you cannot get talon to work:
+ -  Make sure `garrysmod/cfg/talon.cfg` exists. You can create the file manually yourself. After this, restart GMod and restart talon **after** finishing joining ingame.
 
 ### For servers / singleplayer / listen server users
 
@@ -54,7 +63,7 @@ Please clone [the repo](https://github.com/Metastruct/talon_gmod.git) to your se
  
 **Sandbox:** (gmod_sandbox.talon)
 
- - spawn crate | spawn tree | spawn oil drump
+ - spawn crate | spawn tree | spawn oil drum
  - spawn vehicle jeep
  - spawn weapon crowbar
  - **sandbox** undo | sandbox revert
@@ -86,5 +95,5 @@ Please clone [the repo](https://github.com/Metastruct/talon_gmod.git) to your se
  - Print ingame what was printed on screen
 
 ### Credits
- - [ValveCMD](github.com/python1320/valvecmd)
+ - [ValveCMD](https://github.com/python1320/valvecmd)
  - https://github.com/knausj85/knausj_talon/ for numbers.py et al.
