@@ -1,4 +1,5 @@
 tag: user.aowl
+and tag: user.gmodmode
 -
 
 ^admin mod revive me$: user.gmod_runcmd("aowl revive")
@@ -22,3 +23,7 @@ tag: user.aowl
 ^computer please bring us {user.teleportnames}$: user.gmod_runcmd("aowl bring _"+user.teleportnames)
 ^computer please send back {user.teleportnames}$: user.gmod_runcmd("aowl back _"+user.teleportnames)
 
+
+^avada kedavra$: user.gmod_runcmd("aowl kill #this")
+(prepare civil judgement|laputan machine): user.gmod_preparecmd("aowl kill #this")
+computer [please] terminate this user: user.gmod_preparecmd("aowl kill #this")

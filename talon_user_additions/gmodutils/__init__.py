@@ -88,30 +88,26 @@ def GetGamePath(appid):
 @cache
 def GetGModPath():
 	return GetGamePath(4000)
+
 @cache
 def GetTalonDataFolder():
 	fld = GetGModPath() / 'garrysmod/data/talonvoice/'
-	if not fld.exists():
-		return None
 	return fld
 
 def getTalonSettingsPath():
 	fld=GetTalonDataFolder()
-	if not fld:
-		return None
+
 	file = fld / 'settings.json'
-	if not file.exists():
-		return None
+
 	return file
 
 def getCreateTalonCfg():
 	fld=GetGModPath()
-	if not fld:
-		return None
 	file = fld / 'garrysmod/cfg/talon.cfg'
 	if not file.exists():
 		with file.open("w") as f:
 			f.write("echo talon config enable")
+		print("Created talon.cfg")
 	file.touch(0o777,True)
 	return file
 
