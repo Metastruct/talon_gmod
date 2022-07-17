@@ -12,18 +12,18 @@ weapons_raw = """weapon_ar2,ar2,ar two
 weapon_bugbait,bug bait,bugbait
 weapon_crossbow,crossbow,cross bow
 weapon_crowbar,crow bar,crowbar
-weapon_revolver,revolver
+weapon_357,revolver,revolver magnum,three five seven magnum,three five seven
 none,none,nan
-weapon_slam,tripmine,trip mine,slam,Selectable Lightweight Attack Munition
+weapon_slam,tripmine,trip mine,slam,selectable lightweight attack munition
 weapon_frag,frag grenade,grenade,half life two grenade
 weapon_physcannon,physcannon,physics cannon,physics weapon,gravity gun
 weapon_physgun,physics gun,physgun,physics manipulator
 weapon_pistol,pistol,half life two pistol
 weapon_rpg,rpg,rocket launcher,rocket propeller gun
 weapon_shotgun,shot gun,shotgun
-weapon_smg1,smg1,smg one,uzi
+weapon_smg1,smg one,s m g,s m g one,smg one,uzi
 weapon_stunstick,stun stick,stunstick
-gmod_toolgun,toolgun,tool gun"""
+gmod_tool,toolgun,tool gun"""
 
 # todo move
 weapons_raw+="""
@@ -37,6 +37,7 @@ arcticvr_usptactical,vr pistol"""
 weapons=genMapping(weapons_raw)
 
 props=genMapping("""models/props_junk/wood_crate001a.mdl,crate
+models/Items/item_item_crate.mdl,small crate
 models/props_c17/oildrum001.mdl,oildrum,oil drum,oil barrel
 models/props_c17/oildrum001_explosive.mdl,explosive oildrum,explosive oil drum,explosive oil barrel
 models/props_c17/furnitureStove001a.mdl,stove,a stove
@@ -63,10 +64,16 @@ models/props_interiors/Furniture_chair01a.mdl,chair
 models/props_junk/gascan001a.mdl,gas can,gascan
 models/props_junk/metal_paintcan001a.mdl,paint can
 models/props_c17/fence01a.mdl,fence
+models/props_trainstation/bench_indoor001a.mdl,bench
 models/props_foliage/tree_poplar_01.mdl,tree
 models/props_combine/breenchair.mdl,breen chair
+models/props_junk/CinderBlock01a.mdl,brick,a brick
+models/props_wasteland/gaspump001a.mdl,gas pump
 models/props_combine/breendesk.mdl,breen desk
-models/props_junk/garbage_coffeemug001a.mdl,coffee mug
+models/props_c17/FurnitureCouch001a.mdl,couch,furniture couch
+models/props_junk/TrashDumpster02.mdl,dumpster,trash dumpster
+models/props_vehicles/tire001c_car.mdl,tire,a tire
+models/props_junk/garbage_coffeemug001a.mdl,coffee mug,mug,cup,coffee cup
 models/props_junk/watermelon01.mdl,watermelon""")
 
 vehicles=genMapping("""Jeep,Jeep
@@ -102,7 +109,15 @@ npc_manhack,man hack,manhack
 npc_barney,barney
 npc_eli,eli vance
 Medic,medic""")
-sents=genMapping("""sent_ball,ball""")
+
+
+sents=genMapping("""sent_ball,ball
+item_healthkit,health kit,medkit,med kit
+item_healthvial,health vial,healthvial
+item_battery,suit battery,battery
+combine_mine,combine mine
+item_ammo_pistol_large,pistol ammo,ammo pistol
+item_ammo_smg1_grenade,s m g grenade,smg grenade""")
 
 spawners={
 	"npc": npcs,

@@ -14,6 +14,9 @@ flashlight: user.gmod_runcmd("impulse 100")
 flash light: user.gmod_runcmd("impulse 100")
 
 toggle noclip: user.gmod_runcmd("noclip")
+wingardium leviosaa: user.gmod_runcmd("noclip")
+wingardium leviosa: user.gmod_runcmd("noclip")
+siipiirdium lentiusa: user.gmod_runcmd("noclip")
 
 ^(operator|computer) terminate user$: user.gmod_runcmd("kill")
 # Somehow this command always gets triggered so we disable it
@@ -24,7 +27,18 @@ toggle noclip: user.gmod_runcmd("noclip")
 ^(microphone disable|disable microphone|disable micro phone|micro phone disable)$: user.gmod_runcmd("-voicerecord")
 
 ^computer stop sounds$: user.gmod_runcmd("stopsound")
-^computer set game volume to <number>$: user.gmod_runcmd("volume {number/100}")
+^computer set [game] volume to <number>$: 
+	user.gmod_runcmd("volume {number/100}")
+	user.gmod_runcmd("play hl1/fvox/fuzz.wav")
+
+^computer mute game$: 
+	user.gmod_runcmd("volume 0")
+
+# TODO: old volume
+^computer unmute game$: 
+	user.gmod_runcmd("volume 0.5")
+	user.gmod_runcmd("hl1/fvox/fuzz.wav")
+
 ^computer (mute players|set player volume to zero)$: user.gmod_runcmd("voice_scale 0")
 
 # Demo sandbox commands, always active
@@ -51,4 +65,3 @@ computer (commence|initialize|prepare|engage) self (destruct|destruction):
 computer cancel (command|order): 
 	user.gmod_runcmd("")
 	user.gmod_preparecmd("")
-(confirm|execute): user.gmod_preparecmd_execute()

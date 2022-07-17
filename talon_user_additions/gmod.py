@@ -10,7 +10,7 @@ from talon import cron, actions, Module, Context, screen, ui, actions, clip, app
 
 from datetime import datetime
 import os, subprocess
-import time
+import time,re
 from datetime import datetime
 mod = Module()
 #mod.mode("gmodmode", desc="GMod command functions mode")
@@ -27,6 +27,12 @@ os: windows
 and app.exe: gmod.exe
 """
 apps.gmod = """
+os: windows
+and app.name: Garry's Mod
+os: windows
+and app.exe: hl2.exe
+"""
+apps.gmod = """
 os: mac
 and app.bundle: org.facepunch.gmod
 """
@@ -40,6 +46,7 @@ mod.tag("sandbox", desc="sandbox commands")
 mod.tag("sandbox_modded", desc="sandbox modded") #TODO
 mod.tag("darkrp", desc="darkrp commands")
 mod.tag("terrortown", desc="terrortown commands")
+mod.tag("gmodconfirm", desc="gmodconfirm for confirming commands")
 
 # We use this context to enable tags
 ctx = Context()
@@ -72,18 +79,20 @@ preparedcmd=["",time.time()]
 # User actions, like running console commands
 @mod.action_class
 class Actions:
-	
 	def gmod_preparecmd(c: str):
 		"""Prepares running console command ingame"""
 		preparedcmd[0]=c
 		preparedcmd[1]=time.time()
+		if "user.gmodconfirm" not in runtime_tags:
+			runtime_tags.append("user.gmodconfirm")
+			updateTags()
 
 	def gmod_runcmd(c: str):
 		"""Runs console command ingame"""
 		gmodutils.RunConsoleCommand(c)
 
 	def gmodmode(e: int):
-		"""agh"""
+		"""Set whether any of the gmod commands should run"""
 		if e:
 			runtime_tags.append("user.gmodmode")
 		else:
@@ -95,9 +104,18 @@ class Actions:
 		
 	def gmod_preparecmd_execute():
 		"""Runs console command ingame"""
-		if preparedcmd[0]:
-			gmodutils.RunConsoleCommand(preparedcmd[0])
+		cmd=preparedcmd[0]
+		if cmd:
+			if cmd=="enable_talon_cmds":
+				gmodutils.RunConsoleCommand("_talon_cmd gmodmode 1;play hl1/fvox/activated.wav")
+				runtime_tags.append("user.gmodmode")
+				updateTags()
+			else:
+				gmodutils.RunConsoleCommand(preparedcmd[0])
 			preparedcmd[0]=""
+		if "user.gmodconfirm" in runtime_tags:
+			runtime_tags.remove("user.gmodconfirm")
+			updateTags()
 
 	def gmod_timefi():
 		"""current time cmd"""
@@ -108,6 +126,7 @@ class Actions:
 
 
 # ==== settings.json ==========
+inited=False
 settings_path = gmodutils.getTalonSettingsPath()
 if settings_path:
 	settings_path=str(settings_path)
@@ -122,8 +141,13 @@ if settings_path:
 
 	update_settings(settings_path, None)
 	fs.watch(settings_path, update_settings)
+	inited=True
+
+if not inited:
+	print("could not initialize settings relay")
 
 # ===== players.json (TODO: json) ======
+inited=False
 datafolder = gmodutils.GetTalonDataFolder()
 if datafolder:
 	players_file = datafolder / 'players.json'
@@ -140,13 +164,19 @@ if datafolder:
 				for line in f:
 					data = line.rstrip().split(" ",1)
 					if len(data)>0:
-						t[data[1]]=data[0]
-						#print(data[1])
+						username=data[1]
+						username=re.sub(r'[^a-zA-Z ]',r' ', username) # TODO: convert numbers?
+						username=re.sub(r'  ',r' ', username)
+						username=re.sub(r'  ',r' ', username).rstrip().lstrip()
+						t[username]=data[0]
+						#print(username)
 			ctx.lists["user.teleportnames"]=t
-
+			print("updated teleport listing",len(t))
 		update_teleport_list(players_file, None)
 		fs.watch(players_file, update_teleport_list)
-
+		inited=True
+if not inited:
+	print("could not initialize teleport listing")
 
 sandbox.init()
 gmodutils.RunConsoleCommand("_talon_initializer")
