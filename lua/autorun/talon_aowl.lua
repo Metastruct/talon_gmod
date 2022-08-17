@@ -1,11 +1,16 @@
-if SERVER then AddCSLuaFile() return end
+if SERVER then
+    --TODO?
+    --if not file.Exists("autorun/aowl.lua",'LUA') then return end
+    --AddCSLuaFile()
+    return
+end
 
 local Tag = 'talon_aowl'
 
 local function initAowl()
 	if not _G.aowl then return end
 	local GotoLocations = {}
-	local Commands = {} -- TODO?
+	local Commands = {} -- TODO? Too dangerous likely
 
 	for k, v in pairs(aowl.GotoLocations or {}) do
 		table.insert(GotoLocations, k)
@@ -19,20 +24,5 @@ local function initAowl()
         talon.updateFeatures()
     end
 end
-
-if util.OnInitialize then
-	util.OnInitialize(function()
-		initAowl()
-	end)
-else
-	if talon.initialized then
-		print("talon reinitialize")
-		chat.AddText("talon reinitialize")
-		talon.init()
-		talon.start()
-	else
-		hook.Add("Initialize", Tag, function()
-			initAowl()
-		end)
-	end
-end
+hook.Add("AowlInitialized", Tag, initAowl)
+initAowl()
