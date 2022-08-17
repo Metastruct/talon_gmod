@@ -38,6 +38,7 @@ weapons=genMapping(weapons_raw)
 
 props=genMapping("""models/props_junk/wood_crate001a.mdl,crate
 models/Items/item_item_crate.mdl,small crate
+models/props_borealis/bluebarrel001.mdl,blue barrel
 models/props_c17/oildrum001.mdl,oildrum,oil drum,oil barrel
 models/props_c17/oildrum001_explosive.mdl,explosive oildrum,explosive oil drum,explosive oil barrel
 models/props_c17/furnitureStove001a.mdl,stove,a stove

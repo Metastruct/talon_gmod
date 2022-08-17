@@ -16,7 +16,5 @@ app: gmod
 	user.gmod_runcmd("play garrysmod/ui_click.wav")
 	user.gmod_preparecmd("enable_talon_cmds")
 
-toggle flashlight: user.gmod_runcmd("impulse 100")
-flashlight: user.gmod_runcmd("impulse 100")
-flash light: user.gmod_runcmd("impulse 100")
+(flashlight|flash light|toggle flashlight): user.gmod_runcmd("impulse 100")
 
