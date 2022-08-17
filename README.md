@@ -55,13 +55,13 @@ Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedet
 Please clone [the repo](https://github.com/Metastruct/talon_gmod.git) to your server's addons folder. You can also [download it](https://github.com/Metastruct/talon_gmod/archive/refs/heads/dev.zip).
 
 ### Voice commands
-**Generic:** (Open `gmod.talon` with a text file)
+**Generic:** ([`gmod.talon`](https://github.com/Metastruct/talon_gmod/blob/dev/talon_user_additions/gmod.talon))
  - toggle flashlight | flashlight
  - select weapon crowbar
  - enable/disable microphone
  - c̵̳̀o̵͖̚m̷̥̀p̶̼̈ụ̵͗t̷̛̹e̵͔̅r̸̛̪ ̵͕̿t̸̲͆e̵͎̅r̴͘ͅm̵̨͑i̸̼͐n̸͍̆â̴͔ṭ̷̀ẻ̶͖ ̷̜̽u̶̢̓s̶̺͛e̶͊ͅr̶̦͝
  
-**Sandbox:** (gmod_sandbox.talon)
+**Sandbox:** (More on [`gmod_sandbox.talon`](https://github.com/Metastruct/talon_gmod/blob/dev/talon_user_additions/gmod_sandbox.talon))
 
  - spawn crate | spawn tree | spawn oil drum
  - spawn vehicle jeep
@@ -70,7 +70,7 @@ Please clone [the repo](https://github.com/Metastruct/talon_gmod.git) to your se
  - **sandbox** cleanup everything
  - **toolgun** weld | toolgun rope | toolgun remover
 
-**Admin mod:** (only `aowl` on [metastruct](https://metastruct.eu) servers are presently supported)
+**Admin mod:** (only `aowl` on [metastruct](https://metastruct.eu) servers are presently supported. For ULX See [`gmod_ulx.talon`](https://github.com/Metastruct/talon_gmod/blob/dev/talon_user_additions/gmod_ulx.talon))
  - teleport to `short username`
  - computer please bring us `short username`
  - admin mod go to `short username`
@@ -79,6 +79,8 @@ Please clone [the repo](https://github.com/Metastruct/talon_gmod.git) to your se
  - kaboom kaboom
  - go to spawn
  - admin mod teleport there
+
+Also see: [`gmod_overwatch.talon`](https://github.com/Metastruct/talon_gmod/blob/dev/talon_user_additions/gmod_overwatch.talon)
 
 ### TODO / help wanted
 
