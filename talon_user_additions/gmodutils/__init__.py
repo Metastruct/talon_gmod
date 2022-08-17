@@ -125,7 +125,7 @@ def getCreateTalonCfg():
 
 def readTalonAutogenSettings():
 	file = getTalonSettingsPath()
-	if not file:
+	if not file or not file.exists():
 		return None
 
 	with file.open("r") as f:
