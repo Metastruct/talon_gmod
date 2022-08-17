@@ -36,13 +36,13 @@ end)
 hook.Add("TalonCommand", "pophiss", function(data)
 	if data == "pop" then
 		if hook.Run("PreTalonPop") == true then return end
-		hook.Run("TalonPop")
+		return hook.Run("TalonPop")
 	elseif data == "hiss 1" then
 		if hook.Run("PreTalonHiss", true) == true then return end
-		hook.Run("TalonHiss", true)
+		return hook.Run("TalonHiss", true)
 	elseif data == "hiss 0" then
 		if hook.Run("PreTalonHiss", false) == true then return end
-		hook.Run("TalonHiss", false)
+		return hook.Run("TalonHiss", false)
 	end
 end)
 
@@ -52,9 +52,22 @@ local enable_hiss_attack
 hook.Add("TalonCommand", "attack_hiss_pop", function(data)
 	if data == "attackhisspop 1" then
 		enable_hiss_attack = true
+		return true
 	elseif data == "attackhisspop 0" then
 		enable_hiss_attack = false
+		return true
 	end
+end)
+
+hook.Add("TalonCommand", "properties", function(data)
+	local property = data:match("^properties ([a-zA-Z0-9%_%.%-]+)")
+	if not property or not properties then return end
+	local prop = properties.List[property]
+	if not prop then return end
+	local ent = LocalPlayer():GetEyeTrace().Entity
+	if not ent:IsValid() then return end
+	print("[Talon] Running property",property,"on",ent)
+	prop:Action(ent,LocalPlayer():GetEyeTrace())
 end)
 
 hook.Add("TalonHiss", Tag, function(attacking)
