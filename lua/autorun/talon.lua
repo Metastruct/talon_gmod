@@ -89,8 +89,20 @@ concommand.Add("_talon_message", function(_, _, _, msg)
 end)
 
 -- Generic CMD dispatcher from talon
+local handled=false
+function talon.handleCmd()
+	handled=true
+end
+function talon.isCmdHandled()
+	return handled
+end
 concommand.Add("_talon_cmd", function(_, _, _, data)
-	hook.Run("talon_cmd",data)
+	handled=false
+	hook.Run("TalonCommand",data)
+	
+	if not talon.isCmdHandled() then
+		print("Talon CMD received: " .. data)
+	end
 end)
 
 

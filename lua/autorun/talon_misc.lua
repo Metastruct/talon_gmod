@@ -1,35 +1,81 @@
-if SERVER then AddCSLuaFile() return end
+if SERVER then
+	AddCSLuaFile()
+
+	return
+end
+
 local Tag = 'talon_misc'
 
-hook.Add("TalonStart",Tag,function()
+hook.Add("TalonStart", Tag, function()
 	-- More expensive functions go here
-	talon.last_init=talon.last_init or 0
-	if os.time()-talon.last_init>1 then
+	talon.last_init = talon.last_init or 0
+
+	if os.time() - talon.last_init > 1 then
 		chat.AddText("[Talon Voice] Started")
-		timer.Simple(2,function()
-			timer.Simple(2,function()
+
+		timer.Simple(2, function()
+			timer.Simple(2, function()
 				surface.PlaySound("vo/citadel/br_yesjudith.wav")
 			end)
 		end)
 	end
-	talon.last_init=os.time()
+
+	talon.last_init = os.time()
 end)
 
-
-hook.Add("talon_cmd","talon_visuals",function(data)
-	if data=="gmodmode 1" then
+local talon_gmodmode_sound = CreateClientConVar("talon_gmodmode_sound",'1')
+hook.Add("TalonCommand", "talon_gmodmode_sound", function(data)
+	if not talon_gmodmode_sound:GetBool() then return end
+	if data == "gmodmode 1" then
 		surface.PlaySound("hl1/fvox/activated.wav")
-	elseif data=="gmodmode 0" then
+	elseif data == "gmodmode 0" then
 		surface.PlaySound("hl1/fvox/deactivated.wav")
 	end
 end)
 
-hook.Add("talon_cmd","pophiss",function(data)
-	if data=="pop" then
+hook.Add("TalonCommand", "pophiss", function(data)
+	if data == "pop" then
 		if hook.Run("PreTalonPop") == true then return end
 		hook.Run("TalonPop")
-	elseif data=="hiss" then
-		if hook.Run("PreTalonHiss") == true then return end
-		hook.Run("TalonHiss")
+	elseif data == "hiss 1" then
+		if hook.Run("PreTalonHiss", true) == true then return end
+		hook.Run("TalonHiss", true)
+	elseif data == "hiss 0" then
+		if hook.Run("PreTalonHiss", false) == true then return end
+		hook.Run("TalonHiss", false)
 	end
+end)
+
+-- +attack on hiss/pop
+local enable_hiss_attack
+
+hook.Add("TalonCommand", "attack_hiss_pop", function(data)
+	if data == "attackhisspop 1" then
+		enable_hiss_attack = true
+	elseif data == "attackhisspop 0" then
+		enable_hiss_attack = false
+	end
+end)
+
+hook.Add("TalonHiss", Tag, function(attacking)
+	if not enable_hiss_attack then return end
+
+	if attacking then
+		RunConsoleCommand("+attack")
+	else
+		RunConsoleCommand("-attack")
+	end
+
+	return true
+end)
+
+hook.Add("TalonPop", Tag, function()
+	if not enable_hiss_attack then return end
+	RunConsoleCommand("+attack")
+
+	timer.Simple(0.01, function()
+		RunConsoleCommand("-attack")
+	end)
+
+	return true
 end)

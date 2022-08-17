@@ -191,7 +191,7 @@ def on_pop(active):
 
 def on_hiss(active):
 	print("hiss", active)
-	gmodutils.RunConsoleCommand("_talon_cmd hiss")
+	gmodutils.RunConsoleCommand("_talon_cmd hiss %d" % (active and 1 or 0))
 
 noise.register("hiss", on_hiss)
 noise.register("pop", on_pop)

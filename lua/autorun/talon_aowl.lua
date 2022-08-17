@@ -19,10 +19,14 @@ local function initAowl()
 	local t = list.Get("TalonFeatures").aowl or {}
     t.GotoLocations = GotoLocations
 	t.Commands = Commands
+    hook.Run("OnAowlTalonLoading",t)
 	list.Set("TalonFeatures", "aowl", t)
     if talon then
         talon.updateFeatures()
     end
 end
-hook.Add("AowlInitialized", Tag, initAowl)
+
+hook.Add("AowlInitialized", Tag, function()
+    timer.Simple(1.1,initAowl)
+end)
 initAowl()

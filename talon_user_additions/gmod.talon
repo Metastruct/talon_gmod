@@ -2,7 +2,7 @@ app: gmod
 and tag: user.gmodmode
 -
 
-# Demo python commands
+# Demo commands
 ^computer what time is it$: user.gmod_timefi()
 ^computer what is the time$: user.gmod_timefi()
 ^computer time please$: user.gmod_timefi()
@@ -55,13 +55,16 @@ siipiirdium lentiusa: user.gmod_runcmd("noclip")
 ^(select|use) (weapon|wepon) {user.gmod_baseweapons}$: 
     user.gmod_runcmd("use "+user.gmod_baseweapons)
 
-# VRMod (TODO: tag, etc)
-^exit vr mod confirm$: user.gmod_runcmd("vrmod_exit")
-^(computer start vr|computer start vr mode)$: user.gmod_preparecmd("vrmod_start")
-
-computer (commence|initialize|prepare|engage) self (destruct|destruction): 
-	user.gmod_runcmd("_talon_message Confirmation required")
+^computer (commence|initialize|prepare|engage) self (destruct|destruction)$: 
+	user.gmod_runcmd("_talon_message Confirmation required! Say execute to proceed.")
+	user.gmod_runcmd("play hl1/fvox/near_death.wav")
 	user.gmod_preparecmd("kill")
 computer cancel (command|order): 
 	user.gmod_runcmd("")
 	user.gmod_preparecmd("")
+
+# Hiss pop attack system
+^enable attack on pop$:
+    user.gmod_runcmd("_talon_cmd attackhisspop 1;play weapons/357/357_reload4.wav")
+^disable attack on pop$:
+    user.gmod_runcmd("_talon_cmd attackhisspop 0;play weapons/357/357_reload4.wav")
