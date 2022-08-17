@@ -25,8 +25,12 @@ and tag: user.gmodmode
 
 
 ^avada kedavra$: user.gmod_runcmd("aowl kill #this")
-(prepare civil judgement|laputan machine): user.gmod_preparecmd("aowl kill #this")
-computer [please] terminate this user: user.gmod_preparecmd("aowl kill #this")
+(prepare civil judgement|laputan machine): 
+    user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
+    user.gmod_preparecmd("aowl kill #this")
+computer [please] terminate this user: 
+    user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
+    user.gmod_preparecmd("aowl kill #this")
 
 ^admin mod (resurrect|revive) this (player|person|user)$: user.gmod_runcmd("aowl revive #us")
 ^admin mod resurrect (everyone|all)$: user.gmod_runcmd("aowl revive #all")

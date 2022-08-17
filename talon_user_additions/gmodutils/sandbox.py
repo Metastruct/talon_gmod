@@ -53,8 +53,10 @@ models/props_interiors/VendingMachineSoda01a.mdl,vending machine
 models/props_c17/FurnitureDrawer001a.mdl,furniture drawer
 models/props_lab/clipboard.mdl,clipboard,clip board
 models/props_lab/frame002a.mdl,family frame
+models/props_interiors/Furniture_Lamp01a.mdl,furniture lamp
 models/props_lab/huladoll.mdl,hula doll
 models/props_lab/citizenradio.mdl,citizen radio
+models/props_junk/harpoon002a.mdl,harpoon
 models/props_lab/binderblue.mdl,book
 models/props_junk/GlassBottle01a.mdl,glass bottle
 models/props_junk/sawblade001a.mdl,saw blade,sawblade
@@ -114,7 +116,7 @@ Medic,medic""")
 
 sents=genMapping("""sent_ball,ball
 item_healthkit,health kit,medkit,med kit
-item_healthvial,health vial,healthvial
+item_healthvial,health vial,healthvial,tiny medkit,small medkit
 item_battery,suit battery,battery
 combine_mine,combine mine
 item_ammo_pistol_large,pistol ammo,ammo pistol

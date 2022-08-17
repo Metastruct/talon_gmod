@@ -75,17 +75,25 @@ def updateTags():
 	ctx.tags = tags
 updateTags()
 
-preparedcmd=["",time.time()]
+
+preparedcmd=["",time.time(),True]
 # User actions, like running console commands
 @mod.action_class
 class Actions:
+	def gmod_setconfirm(c: int):
+		"""Should confirmation be required"""
+		preparedcmd[2]=c==1
+
 	def gmod_preparecmd(c: str):
 		"""Prepares running console command ingame"""
 		preparedcmd[0]=c
 		preparedcmd[1]=time.time()
-		if "user.gmodconfirm" not in runtime_tags:
-			runtime_tags.append("user.gmodconfirm")
-			updateTags()
+		if preparedcmd[2]==False:
+			Actions.gmod_preparecmd_execute()
+		else:
+			if "user.gmodconfirm" not in runtime_tags:
+				runtime_tags.append("user.gmodconfirm")
+				updateTags()
 
 	def gmod_runcmd(c: str):
 		"""Runs console command ingame"""

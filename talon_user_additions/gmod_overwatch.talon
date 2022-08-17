@@ -18,3 +18,9 @@ app: gmod
 
 (flashlight|flash light|toggle flashlight): user.gmod_runcmd("impulse 100")
 
+
+^computer (disable|deactive|bypass) confirmation$:
+    user.gmod_runcmd("play hl1/fvox/deactivated.wav")
+    user.gmod_setconfirm(0)
+^computer (enable|active|require) confirmation$: 
+    user.gmod_setconfirm(1)

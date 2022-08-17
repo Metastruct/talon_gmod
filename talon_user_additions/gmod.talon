@@ -48,4 +48,6 @@ toggle noclip: user.gmod_runcmd("noclip")
 ^disable attack on pop$: user.gmod_runcmd("_talon_cmd attackhisspop 0;play weapons/357/357_reload4.wav")
 
 # Somehow these commands always gets triggered
-^i cant take this anymore$: user.gmod_preparecmd("kill")
+^i cant take this anymore$: 
+	user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
+	user.gmod_preparecmd("kill")

@@ -3,8 +3,12 @@ and tag: user.gmodmode
 -
 
 # Cleanup / undo
-^sand box clean up everything$: user.gmod_preparecmd("gmod_cleanup")
-^sand box clean up$: user.gmod_preparecmd("gmod_cleanup")
+^sand box clean up everything$: 
+    user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
+    user.gmod_preparecmd("gmod_cleanup")
+^sand box clean up$: 
+    user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
+    user.gmod_preparecmd("gmod_cleanup")
 
 ^sand box undo$: user.gmod_runcmd("gmod_undo")
 ^sand box undo (two|twice)$: user.gmod_runcmd("gmod_undo;gmod_undo")
@@ -14,7 +18,12 @@ and tag: user.gmodmode
 ^sand box ignite this$: user.gmod_runcmd("_talon_cmd properties ignite")
 ^sand box extinguish this$: user.gmod_runcmd("_talon_cmd properties extinguish")
 ^wingardium (leviosa|leviosaa|leviosaaa)$: user.gmod_runcmd("_talon_cmd properties gravity")
-^sand box delete this$: user.gmod_preparecmd("_talon_cmd properties remove")
+^sand box delete this$: 
+    user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
+    user.gmod_preparecmd("_talon_cmd properties remove")
+^(sectumsempra|sand box break this)$:
+    user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
+    user.gmod_preparecmd("_talon_cmd properties breakable_break")
 
 # Creation
 ^(give|create) weapon {user.sandbox_weapon}$: user.gmod_runcmd("gm_giveswep "+user.sandbox_weapon)
