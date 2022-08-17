@@ -46,9 +46,9 @@ Check from [issues](https://github.com/Metastruct/talon_gmod/issues?q=is%3Aissue
 
 ### For servers / singleplayer / listen server users
 
-The addon requires clientside/serverside Lua files for better commands support!
+The addon requires clientside/serverside Lua files for support for most commands!
 
-Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=TODO) for improved command support.
+Subscribe to the [workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=2850447765) for improved command support.
 
 **Alternatively**
 
