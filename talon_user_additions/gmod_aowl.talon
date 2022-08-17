@@ -18,10 +18,10 @@ and tag: user.gmodmode
 ^teleport back$: user.gmod_runcmd("aowl back")
 ^admin mod back$: user.gmod_runcmd("aowl back")
 
-^teleport to {user.teleportnames}$: user.gmod_runcmd("aowl goto _"+user.teleportnames)
-^admin mod go to {user.teleportnames}$: user.gmod_runcmd("aowl goto _"+user.teleportnames)
-^computer please bring us {user.teleportnames}$: user.gmod_runcmd("aowl bring _"+user.teleportnames)
-^computer please send back {user.teleportnames}$: user.gmod_runcmd("aowl back _"+user.teleportnames)
+^teleport to {user.teleportnames}$: user.gmod_runcmd("aowl goto \"{user.teleportnames}\"")
+^computer (transport to|go to|teleport to) {user.teleportnames}$: user.gmod_runcmd("aowl goto \"{user.teleportnames}\"")
+^computer please bring us {user.teleportnames}$: user.gmod_runcmd("aowl bring \"{user.teleportnames}\"")
+^computer please send back {user.teleportnames}$: user.gmod_runcmd("aowl back \"{user.teleportnames}\"")
 
 
 ^avada kedavra$: user.gmod_runcmd("aowl kill #this")
@@ -32,5 +32,3 @@ computer [please] terminate this user: user.gmod_preparecmd("aowl kill #this")
 ^admin mod resurrect (everyone|all)$: user.gmod_runcmd("aowl revive #all")
 ^admin mod heal (everyone|all)$: user.gmod_runcmd("aowl l all:SetHealth(100)")
 
-
-^avada kedavra$: user.gmod_runcmd("aowl kill #this")
