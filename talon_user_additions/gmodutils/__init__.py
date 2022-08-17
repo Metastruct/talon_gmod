@@ -2,7 +2,7 @@
 import os,sys,subprocess
 from pathlib import Path
 
-#TODO: Wtf, how, this will break at some point
+#TODO: This will break at some point (is there a better way)
 def pipInstall(pkg):
 	pip = Path(os.path.dirname(os.path.realpath(__file__))) / '../../.venv/Scripts/pip.bat'
 	pip = pip.resolve()
@@ -101,14 +101,26 @@ def getTalonSettingsPath():
 
 	return file
 
+import time,re
 def getCreateTalonCfg():
 	fld=GetGModPath()
 	file = fld / 'garrysmod/cfg/talon.cfg'
 	if not file.exists():
 		with file.open("w") as f:
-			f.write("echo talon config enable")
+			f.write("echo talon config enable\ntalon_ts "+str(int(time.time()))+"\n")
 		print("Created talon.cfg")
-	file.touch(0o777,True)
+		
+	else:
+		with file.open("r") as f:
+			data=f.read()
+
+		data=re.sub(r"^(talon_ts )\d+$",lambda x:x.group(1)+str(int(time.time())),data,flags=re.MULTILINE)
+
+		with file.open("w") as f:
+			f.write(data)
+	
+	file.touch(0o777,True) # Make sure file is updated
+
 	return file
 
 def readTalonAutogenSettings():
