@@ -15,7 +15,7 @@ Although talonvoice supports Mac and Linux, **talon_gmod does not yet support th
  
       ![image](https://user-images.githubusercontent.com/207340/156883300-794009b3-5a72-46dc-a4bc-720188f3cc9c.png)
       
-      **NOTE:** You may need to wait for talon to initialize for over a minute before the button appears. Check [logs](https://github.com/Metastruct/talon_gmod#troubleshooting) to see progress.
+      **NOTE:** You may need to wait for talon to initialize for over a minute before the button appears. Check [logs](#troubleshooting) to see progress.
       You can also try restarting talon once and waiting for a minute. You can also continue to next step in the meanwhile. Please write in issues what worked.
       
  3. Open the talon configuration folder from tray
