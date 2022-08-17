@@ -6,7 +6,7 @@ gmodutils.getCreateTalonCfg()
 gmodutils.RunConsoleCommand("_talon_initializer")
 
 
-from talon import cron, actions, Module, Context, screen, ui, actions, clip, app, fs, settings #, noise
+from talon import cron, actions, Module, Context, screen, ui, actions, clip, app, fs, settings, noise
 
 from datetime import datetime
 import os, subprocess
@@ -163,13 +163,14 @@ if datafolder:
 			with open(players_file, "r") as f:
 				for line in f:
 					data = line.rstrip().split(" ",1)
-					if len(data)>0:
+					if len(data)>1:
 						username=data[1]
 						username=re.sub(r'[^a-zA-Z ]',r' ', username) # TODO: convert numbers?
 						username=re.sub(r'  ',r' ', username)
 						username=re.sub(r'  ',r' ', username).rstrip().lstrip()
 						t[username]=data[0]
 						#print(username)
+
 			ctx.lists["user.teleportnames"]=t
 			print("updated teleport listing",len(t))
 		update_teleport_list(players_file, None)
@@ -180,3 +181,17 @@ if not inited:
 
 sandbox.init()
 gmodutils.RunConsoleCommand("_talon_initializer")
+
+
+### ==== pop/hiss ###
+
+def on_pop(active):
+	print("pop",active)
+	gmodutils.RunConsoleCommand("_talon_cmd pop")
+
+def on_hiss(active):
+	print("hiss", active)
+	gmodutils.RunConsoleCommand("_talon_cmd hiss")
+
+noise.register("hiss", on_hiss)
+noise.register("pop", on_pop)
