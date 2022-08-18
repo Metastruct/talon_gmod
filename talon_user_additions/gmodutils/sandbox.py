@@ -8,7 +8,7 @@ def genMapping(str):
 		ret[id]=callers.split(",")
 	return ret
 
-weapons_raw = """weapon_ar2,ar2,ar two
+weapons_raw = """weapon_ar2,ar2,ar two,pulse rifle
 weapon_bugbait,bug bait,bugbait
 weapon_crossbow,crossbow,cross bow
 weapon_crowbar,crow bar,crowbar
@@ -105,7 +105,7 @@ npc_headcrab,head crab,headcrab
 npc_antlion,antlion,ant lion
 npc_antlion_grub,ant lion grub,antlion grub
 npc_turret_floor,combine turret,enemy turret
-npc_combine_s,combine solider,combine solder
+npc_combine_s,combine solider,combine solder,metro police,civil protection
 npc_rollermine,roller mine,rollermine
 npc_cscanner,city scanner,scanner
 npc_manhack,man hack,manhack
