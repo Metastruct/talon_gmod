@@ -96,10 +96,12 @@ def GetTalonDataFolder():
 
 def getTalonSettingsPath():
 	fld=GetTalonDataFolder()
-
+	if not fld:
+		return
+	
 	file = fld / 'settings.json'
 
-	return file
+	return file.resolve()
 
 import time,re
 def getCreateTalonCfg():

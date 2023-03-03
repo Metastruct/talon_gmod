@@ -137,10 +137,8 @@ class Actions:
 inited=False
 settings_path = gmodutils.getTalonSettingsPath()
 if settings_path:
-	settings_path=str(settings_path)
+	settings_path=settings_path.resolve()
 	def update_settings(name, flags):
-		if name != settings_path:
-			return # ?
 		conf = gmodutils.readTalonAutogenSettings()
 		if conf:
 			settings_tags.clear()
@@ -148,7 +146,8 @@ if settings_path:
 			updateTags()
 
 	update_settings(settings_path, None)
-	fs.watch(settings_path, update_settings)
+	fs.watch(str(settings_path), update_settings)
+	print("settings_path=",str(settings_path))
 	inited=True
 
 if not inited:
@@ -158,17 +157,15 @@ if not inited:
 inited=False
 datafolder = gmodutils.GetTalonDataFolder()
 if datafolder:
-	players_file = datafolder / 'players.json'
+	players_file = (datafolder / 'players.json').resolve()
+	players_file.touch()
 	if players_file.exists():
-		players_file=str(players_file)
 		mod.list("teleportnames", desc="list of teleport names and entity ids")
 
 		def update_teleport_list(name, flags):
-			if name != players_file:
-				return
 
 			t = {}
-			with open(players_file, "r") as f:
+			with players_file.open("r") as f:
 				for line in f:
 					data = line.rstrip().split(" ",1)
 					if len(data)>1:
@@ -180,12 +177,12 @@ if datafolder:
 						#print(username)
 
 			ctx.lists["user.teleportnames"]=t
-			print("updated teleport listing",len(t))
 		update_teleport_list(players_file, None)
-		fs.watch(players_file, update_teleport_list)
+		fs.watch(str(players_file), update_teleport_list)
 		inited=True
 if not inited:
 	print("could not initialize teleport listing")
+
 
 sandbox.init()
 gmodutils.RunConsoleCommand("_talon_initializer")
@@ -203,3 +200,5 @@ def on_hiss(active):
 
 noise.register("hiss", on_hiss)
 noise.register("pop", on_pop)
+
+
