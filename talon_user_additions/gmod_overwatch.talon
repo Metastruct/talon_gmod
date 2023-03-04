@@ -16,7 +16,7 @@ app: gmod
 	user.gmod_runcmd("play garrysmod/ui_click.wav")
 	user.gmod_preparecmd("enable_talon_cmds")
 
-(flashlight|flash light|toggle flashlight): user.gmod_runcmd("impulse 100")
+(flashlight|flash light|toggle flashlight|lumos|lumos maxima|revelio): user.gmod_runcmd("impulse 100")
 
 
 ^computer (disable|deactive|bypass) confirmation$:
@@ -24,3 +24,4 @@ app: gmod
     user.gmod_setconfirm(0)
 ^computer (enable|active|require) confirmation$: 
     user.gmod_setconfirm(1)
+

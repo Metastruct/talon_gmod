@@ -3,7 +3,7 @@ and tag: user.gmodmode
 -
 
 # Demo sandbox commands, always active
-^(computer what time is it|computer what is the time|computer time please|computer current time please)$: user.gmod_timefi()
+^(computer what time is it|computer tell the time|computer what is the time|computer time please|computer current time please)$: user.gmod_timefi()
 ^operator I need a shotgun$: user.gmod_runcmd("gm_giveswep weapon_shotgun")
 ^operator give this person a shotgun$: user.gmod_runcmd("gm_giveswep weapon_shotgun")
 ^operator give us shotguns$:
@@ -17,6 +17,8 @@ toggle noclip: user.gmod_runcmd("noclip")
 
 # Suicide
 ^(operator|computer) terminate user$: user.gmod_runcmd("kill")
+^these violent delights have violent ends$: user.gmod_runcmd("kill")
+^(computer kill self|computer suicide)$: user.gmod_preparecmd("kill")
 
 # Audio volume and microphone 
 
@@ -48,6 +50,6 @@ toggle noclip: user.gmod_runcmd("noclip")
 ^disable attack on pop$: user.gmod_runcmd("_talon_cmd attackhisspop 0;play weapons/357/357_reload4.wav")
 
 # Somehow these commands always gets triggered
-^i cant take this anymore$: 
+^(i cant take this anymore|admin mod commit seppuku)$: 
 	user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
 	user.gmod_preparecmd("kill")

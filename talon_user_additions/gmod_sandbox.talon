@@ -15,13 +15,22 @@ and tag: user.gmodmode
 ^sand box undo (three|thrice)$: user.gmod_runcmd("gmod_undo;gmod_undo;gmod_undo")
 
 # Properties
-^sand box ignite this$: user.gmod_runcmd("_talon_cmd properties ignite")
-^sand box extinguish this$: user.gmod_runcmd("_talon_cmd properties extinguish")
+^(incendio|sand box ignite this)$: user.gmod_runcmd("_talon_cmd properties ignite")
+^(glacius|sand box extinguish this)$: user.gmod_runcmd("_talon_cmd properties extinguish")
+
+^sand box collision (on|enable)$: user.gmod_runcmd("_talon_cmd properties collision_on")
+^sand box collision (off|disable)$: user.gmod_runcmd("_talon_cmd properties collision_off")
+
+^(alohomora|sand box open door)$: 
+    user.gmod_runcmd("_talon_cmd properties door_open")
+    user.gmod_runcmd("+use")
+    user.gmod_runcmd("-use")
+^imperio$: user.gmod_runcmd("_talon_cmd properties make_friendly")
 ^wingardium (leviosa|leviosaa|leviosaaa)$: user.gmod_runcmd("_talon_cmd properties gravity")
-^sand box delete this$: 
+^(sand box delete this|evanesco)$: 
     user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
     user.gmod_preparecmd("_talon_cmd properties remove")
-^(sectumsempra|sand box break this)$:
+^(diffindo|bombarda|bombardo|sectumsempra|sand box break this)$:
     user.gmod_runcmd("play buttons/button16.wav;_talon_message Confirmation required")
     user.gmod_preparecmd("_talon_cmd properties breakable_break")
 
